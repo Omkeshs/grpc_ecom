@@ -1,0 +1,18 @@
+syntax = "proto3";
+package product;
+option go_package = "product/pb";
+message Product {
+    int32 id = 1;
+    int32 quantity  = 4;
+    int32 price = 2;
+    int32 category = 3;
+    string name = 5; 
+}
+
+message ListProductResponse{ map< int32, Product> products = 1; }
+
+message ListRequest {}
+
+service ProductService {
+    rpc ListProduct(ListRequest) returns (ListProductResponse);
+}
