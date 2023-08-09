@@ -1,4 +1,4 @@
-package grpc
+package client
 
 import (
 	"github.com/Omkeshs/grpc_ecom/product/grpc/product/pb"
