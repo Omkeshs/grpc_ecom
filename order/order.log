@@ -1,0 +1,3 @@
+{"level":"error","ts":"2023-08-09T12:02:36+05:30","caller":"db/db.go:25","msg":"failed to connect to db","error":"sql: unknown driver \"postgres\" (forgotten import?)","stacktrace":"grpc_ecom/order/db.InitDB\n\t/home/josh/workspace/src/grpc_ecom/order/db/db.go:25\nmain.main\n\t/home/josh/workspace/src/grpc_ecom/order/cmd/main.go:32\nruntime.main\n\t/usr/local/go/src/runtime/proc.go:250"}
+{"level":"info","ts":"2023-08-09T12:03:30+05:30","caller":"db/db.go:29","msg":"connected to DB successfully"}
+{"level":"info","ts":"2023-08-09T12:04:19+05:30","caller":"bl/bl.go:31","msg":" \n \n <b>Place Order BL</b> \n"}
