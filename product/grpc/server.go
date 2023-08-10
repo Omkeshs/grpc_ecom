@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net"
 
+	"github.com/Omkeshs/grpc_ecom/grpc/product/pb"
 	bl "github.com/Omkeshs/grpc_ecom/product/bl"
-	"github.com/Omkeshs/grpc_ecom/product/grpc/product/pb"
 	spec "github.com/Omkeshs/grpc_ecom/product/spec"
 
 	"go.uber.org/zap"

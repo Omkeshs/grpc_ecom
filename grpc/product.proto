@@ -1,6 +1,6 @@
 syntax = "proto3";
 package product;
-option go_package = "product/pb";
+option go_package = "product/";
 message Product {
     int32 id = 1;
     int32 quantity  = 4;
