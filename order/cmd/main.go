@@ -11,11 +11,7 @@ import (
 	"github.com/Omkeshs/grpc_ecom/order/endpoints"
 	"github.com/Omkeshs/grpc_ecom/order/handler"
 	logger "github.com/Omkeshs/grpc_ecom/order/pkg/log"
-
-	// "golang.org/x/vuln/client"
-
-	"github.com/Omkeshs/grpc_ecom/product/grpc/product/pb"
-
+	client "github.com/Omkeshs/grpc_ecom/product/grpc/client"
 	"github.com/gorilla/mux"
 	"github.com/spf13/viper"
 	"go.uber.org/zap/zapcore"
@@ -46,8 +42,7 @@ func main() {
 	// grpc.InitClientServer()
 	// grpc.InitClientServer()
 
-	// client.InitClientServer()
-	pb.NewProductServiceClient(clientConnection)
+	client.InitClientServer()
 
 	// initbl
 	ordersvc := bl.NewBL(logger, orderDL)
