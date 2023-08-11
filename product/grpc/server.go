@@ -5,7 +5,8 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/Omkeshs/grpc_ecom/grpc/product/pb"
+	product "github.com/Omkeshs/grpc_ecom/grpc/product"
+	// "https://github.com/Omkeshs/grpc_ecom/tree/main/grpc/product"
 	bl "github.com/Omkeshs/grpc_ecom/product/bl"
 	spec "github.com/Omkeshs/grpc_ecom/product/spec"
 
@@ -18,7 +19,7 @@ import (
 type server struct {
 	logger    *zap.Logger
 	productbl bl.ProductBL
-	pb.UnimplementedProductServiceServer
+	product.UnimplementedProductServiceServer
 }
 
 func NewProductServer(log *zap.Logger, svc bl.ProductBL) *server {
@@ -39,7 +40,7 @@ func InitGRPCServer(log *zap.Logger, svc bl.ProductBL, port string) error {
 
 	s := grpc.NewServer()
 
-	pb.RegisterProductServiceServer(s, productServer)
+	product.RegisterProductServiceServer(s, productServer)
 
 	reflection.Register(s)
 
