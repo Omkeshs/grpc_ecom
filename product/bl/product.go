@@ -2,7 +2,7 @@ package bl
 
 import (
 	"context"
-	"fmt"
+	"errors"
 
 	spec "github.com/Omkeshs/grpc_ecom/product/spec"
 
@@ -81,11 +81,18 @@ func (svc *bl) ListProduct(ctx context.Context, req spec.ProductRequest) (*spec.
 }
 
 func (svc *bl) UpdateProduct(ctx context.Context, req spec.UpdateProductRequest) error {
-	fmt.Println("Update Product", req)
 	products := *ProdMap
-	product := products[req.ID]
-	product.Quantity = req.Quantity
-	products[req.ID] = product
+	for _, requestProduct := range req {
+		if _, ok := products[requestProduct.ID]; !ok {
+			//check product is exist
+			return errors.New("product not fount")
+		}
+		product := products[requestProduct.ID]
+		product.Quantity = requestProduct.Quantity
+		products[requestProduct.ID] = product
+	}
+
 	ProdMap = &products
+
 	return nil
 }

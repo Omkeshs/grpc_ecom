@@ -6,7 +6,7 @@ const (
 	ListProductPath = "/product"
 
 	// Update product quanitity - PUT Method
-	UpdateProductPath = "/product/{productID:[0-9]+}"
+	UpdateProductPath = "/product"
 
 	// Delete product quanitity - Delete Method
 	DeleteProductPath = "/product/{productID:[0-9]+}"

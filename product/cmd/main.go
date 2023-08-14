@@ -9,7 +9,7 @@ import (
 	db "github.com/Omkeshs/grpc_ecom/product/db"
 	dl "github.com/Omkeshs/grpc_ecom/product/dl"
 	endpoints "github.com/Omkeshs/grpc_ecom/product/endpoints"
-	grpc "github.com/Omkeshs/grpc_ecom/product/grpc"
+	"github.com/Omkeshs/grpc_ecom/product/grpc"
 	handler "github.com/Omkeshs/grpc_ecom/product/handler"
 	log "github.com/Omkeshs/grpc_ecom/product/pkg/log"
 
@@ -51,7 +51,7 @@ func main() {
 	handler.Inithandler(logger, router, productEPs)
 
 	//listen and serve
-	restPort := viper.GetString("PRODUCT_REST_PORT")
+	restPort := viper.GetString("PRODUCT_SVC_REST_PORT")
 	grpcServerPort := viper.GetString("GRPC_SERVER_PORT")
 
 	errs := make(chan error, 2)

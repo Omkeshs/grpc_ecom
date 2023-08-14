@@ -24,13 +24,7 @@ func decodeListRequest(ctx context.Context, r *http.Request) (interface{}, error
 
 func decodeUpdateRequest(ctx context.Context, r *http.Request) (interface{}, error) {
 	req := spec.UpdateProductRequest{}
-	var err error
-	req.ID, err = utils.GetPathID(r, "productID")
-	if err != nil {
-		return nil, fmt.Errorf("invalid productID: %s", err.Error())
-	}
-
-	err = json.NewDecoder(r.Body).Decode(&req)
+	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
 		return nil, fmt.Errorf("failed to decode body :%s", err.Error())
 	}
